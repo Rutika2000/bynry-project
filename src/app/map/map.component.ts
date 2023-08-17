@@ -1,9 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {
-  MatDialog,
   MAT_DIALOG_DATA,
   MatDialogRef,
-  MatDialogModule,
 } from '@angular/material/dialog';
 import * as L from 'leaflet';
 
@@ -13,8 +11,8 @@ export interface DialogData {
   image: string;
   about: string;
   location: {
-    latitude: string;
-    longitude: string;
+    latitude: number;
+    longitude: number;
   };
 }
 @Component({
@@ -28,16 +26,17 @@ export class MapComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<MapComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.initMap()
   }
   private initMap(): void {
-    this.map = L.map('map').setView([51.505, -0.09], 13);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors',
-    }).addTo(this.map);
+    this.map = L.map('map').setView([this.data.location.latitude, this.data.location.longitude], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
+
+    L.marker([this.data.location.latitude, this.data.location.longitude]).addTo(this.map)
   }
 }

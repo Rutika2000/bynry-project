@@ -15,8 +15,8 @@ export class ProfileListComponent implements OnInit {
       image: '',
       about: '',
       location: {
-        latitude: '',
-        longitude: '',
+        latitude: 27.1767,
+        longitude: 78.0081,
       },
     },
     {
@@ -25,8 +25,8 @@ export class ProfileListComponent implements OnInit {
       image: '',
       about: '',
       location: {
-        latitude: '',
-        longitude: '',
+        latitude: 18.5204,
+        longitude: 73.8567,
       },
     },
     {
@@ -35,8 +35,8 @@ export class ProfileListComponent implements OnInit {
       image: '',
       about: '',
       location: {
-        latitude: '',
-        longitude: '',
+        latitude: 28.7041,
+        longitude: 77.1025,
       },
     },
     {
@@ -45,8 +45,8 @@ export class ProfileListComponent implements OnInit {
       image: '',
       about: '',
       location: {
-        latitude: '',
-        longitude: '',
+        latitude: 19.0760,
+        longitude: 72.8777,
       },
     },
   ];
@@ -58,12 +58,11 @@ export class ProfileListComponent implements OnInit {
     'location',
   ];
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   selectProfile(profile: any) {
-    console.log('profile', profile);
     const dialogRef = this.dialog.open(MapComponent, {
       data: profile,
     });
