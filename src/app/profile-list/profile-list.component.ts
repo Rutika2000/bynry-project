@@ -82,8 +82,8 @@ export class ProfileListComponent implements OnInit {
       about:
         "Hello, I'm Meena from West Bengal, famous for its art, literature, and sweets. I'm a passionate painter and love capturing the essence of Kolkata's bustling streets on canvas.",
       location: {
-        latitude: 22.5958,
-        longitude: 88.2636,
+        latitude: 22.5726,
+        longitude: 88.3639,
       },
     },
     {
